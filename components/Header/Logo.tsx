@@ -2,7 +2,13 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 
-const Logo = ({ className }: { className?: string }) => {
+const Logo = ({
+  className,
+  spanDesign,
+}: {
+  className?: string;
+  spanDesign?: string;
+}) => {
   return (
     <Link href={"/"}>
       <h2
@@ -12,7 +18,12 @@ const Logo = ({ className }: { className?: string }) => {
         )}
       >
         Shop
-        <span className="text-shop_light_green group-hover:text-shop_btn_dark_green hoverEffect">
+        <span
+          className={cn(
+            "text-shop_light_green group-hover:text-shop_btn_dark_green hoverEffect",
+            spanDesign
+          )}
+        >
           QT
         </span>
       </h2>

@@ -1,0 +1,30 @@
+import type { Metadata } from "next";
+import "../globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { ClerkProvider } from "@clerk/nextjs";
+
+export const metadata: Metadata = {
+  title: {
+    default: "• Shop Công Nghệ •",
+    template: "%s | Shop Công Nghệ",
+  },
+  description:
+    "Shop Công Nghệ chuyên cung cấp tai nghe, điện thoại, laptop, máy ảnh và phụ kiện chính hãng với giá tốt nhất. Mua sắm dễ dàng, giao hàng nhanh chóng.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <ClerkProvider>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-1 mb-12">{children}</main>
+        <Footer />
+      </div>
+    </ClerkProvider>
+  );
+}
